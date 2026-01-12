@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-const Login = () => {
+const Login = ({ setToken }) => {
     const [isRegistering, setIsRegistering] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -19,7 +19,7 @@ const Login = () => {
             setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
         } else {
             setMessage('Inicio de sesión exitoso.');
-            console.log('Token recibido:', response.data);
+            setToken(response.data.access);
             }
         } catch (error) {
             setMessage('Hubo un error. Verifica tus datos.');
