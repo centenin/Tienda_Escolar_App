@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'users',
     'corsheaders',
+    'movies',
+    'rest_framework',  # ← si estás usando DRF
 ]
 
 REST_FRAMEWORK = {
@@ -47,6 +49,10 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
